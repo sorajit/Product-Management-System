@@ -59,8 +59,9 @@ productRouter.route("/:id").get((req, res) => {
 });
 
 productRouter.route("/").post((req, res) => {
+  lastID = products[products.length-1].id;
   const newProduct = {
-    id: products.length + 1,
+    id: lastID + 1,
     name: req.body.name,
     category: req.body.category,
     price: req.body.price,
